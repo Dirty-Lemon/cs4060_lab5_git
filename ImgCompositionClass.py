@@ -2,18 +2,12 @@ import cv2
 # import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
+# This class contains methods used mainly in assignment 5
 class ImgComposition():
     def __init__(self):
         print("Initialized image composition module")
-    
-    def helloIC(self):
-        print("Hello image composition")
-    
-    # Display image
-    def myShowImg(self, img):
-        cv2.imshow("Image", img)
-        cv2.waitKey(0)
     
     # Create a grid with 2 rows and 4 columns
     def newGrid(self):
@@ -31,3 +25,13 @@ class ImgComposition():
         plt.setp(plt.gcf().get_axes(), xticks = [], yticks = [])    # Removes all axis labels
         # plt.grid(True)
         plt.show()
+    
+    # Decomposes image into bit-planes
+    # Returns an array of 8 image planes decomposed from the image given as an argument
+    def decompImg(self, img):
+        imgPlanes = []
+        imgFloat = float(img)
+        for i in range(0, 8):
+            imgPlanes += math.mod(math.floor(imgFloat / 2**i), 2)
+        
+        return imgPlanes
