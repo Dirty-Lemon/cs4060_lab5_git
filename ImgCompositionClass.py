@@ -30,8 +30,17 @@ class ImgComposition():
     # Returns an array of 8 image planes decomposed from the image given as an argument
     def decompImg(self, img):
         imgPlanes = []
-        imgFloat = float(img)
-        for i in range(0, 8):
-            imgPlanes += math.mod(math.floor(imgFloat / 2**i), 2)
+        # imgFloat = float(img)
+        # for i in range(0, 8):
+        #     imgPlanes.append(math.mod(math.floor(imgFloat / 2**i), 2))
         
+        imgWidth = img.shape[0]
+        imgHeight = img.shape[1]
+        pixels = []
+        
+        for i in range(imgWidth):
+            for j in range(imgHeight):
+                pixels.append(np.binary_repr(img[i][j], imgWidth))
+        
+        print("Image decomposed")
         return imgPlanes

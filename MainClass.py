@@ -10,7 +10,7 @@ class main():
     c = ImgComposition()
     c.newGrid()
     boyImgPlanes = c.decompImg(boyImg)
-    b.myShowMultImg(boyImgPlanes)
+    # b.myShowMultImg(boyImgPlanes)
     # plt.show()
     
     # Part c) - b.myShowMultImg
