@@ -18,6 +18,7 @@ class ImgBasics():
         print("Loading image...")
         cv2.imshow("Image", img)
         cv2.waitKey(0)
+        cv2.destroyWindow("Image")
     
     # Takes a 2D array of images to show on one display
     def myShowMultImg(self, imgsArray):
